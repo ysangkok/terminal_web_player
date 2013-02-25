@@ -21,7 +21,7 @@ Build directory structure:
 
     mkdir -p .data/getlog
     
-Run this Python script in the same directory:
+Run this Python 3 script in the same directory:
 
     import json
     a = open("playedout").read()

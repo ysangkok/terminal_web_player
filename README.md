@@ -1,13 +1,13 @@
 terminal_web_player
 ===================
 
-Record your session using script:
+Record your session using `script`:
 
     script -ttiminginfo scriptdata
     
-Play out the script to a file:
+Play out the recording to a file:
 
-    scriptreplay scriptdata > playedout
+    scriptreplay -t timinginfo scriptdata > playedout
 
 Make an empty folder and run this script:
  
@@ -17,7 +17,7 @@ Make an empty folder and run this script:
 
     wget -O view.html http://rachelbythebay.com/jvt/view
     
-Run this script in the same directory:
+Run this Python script in the same directory:
 
     import json
     a = open("playedout").read()
@@ -27,7 +27,7 @@ Run this script in the same directory:
     f.write(json.dumps({"title":"Session title","logdata":a,"timingdata":b}).encode("ascii"))
     f.close()
     
-Now start a webserver in the directory (`python3 -mhttp.server`) and go to the URL `http://localhost:8000/view.html?playedout`.
+Now start a webserver in the directory (`python3 -mhttp.server`) and go to the URL `http://localhost:8000/view.html?yoursession`.
 
 Tested with these versions:
 

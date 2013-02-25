@@ -17,6 +17,10 @@ Make an empty folder and run this script:
 
     wget -O view.html http://rachelbythebay.com/jvt/view
     
+Build directory structure:
+
+    mkdir -p .data/getlog
+    
 Run this Python script in the same directory:
 
     import json

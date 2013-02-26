@@ -1,14 +1,10 @@
 terminal_web_player
 ===================
 
-Record your session using `script`:
+Record your session using `script` (note that you will need to adjust the size of the web terminal in `view.js` if you record with `$COLUMNS:$ROWS` unequal `80:24` or less):
 
     script -ttiminginfo scriptdata
     
-Play out the recording to a file:
-
-    scriptreplay -t timinginfo scriptdata > playedout
-
 Make an empty folder and run this script:
  
     wget http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js
@@ -23,13 +19,19 @@ Build directory structure:
     
 Run this Python 3 script in the same directory:
 
-    import json
-    a = open("playedout").read()
-    b = open("timinginfo").read()
+```python
+import json
+a = open("scriptdata","rb").read()
+a = a.rpartition(b'\n')[0]
+a = a.rpartition(b'\n')[0] # these two statements remove the "Script done ..." line
+a = a.partition(b'\n')[2] # remove "Script started at..."
+a = a.decode("utf-8")
+b = open("timinginfo","rb").read().decode("utf-8")
 
-    f = open(".data/getlog/yoursession","wb")
-    f.write(json.dumps({"title":"Session title","logdata":a,"timingdata":b}).encode("ascii"))
-    f.close()
+f = open(".data/getlog/yoursession","wb")
+f.write(json.dumps({"title":"Session title","logdata":a,"timingdata":b}).encode("ascii"))
+f.close()
+```
     
 Now start a webserver in the directory (`python3 -mhttp.server`) and go to the URL `http://localhost:8000/view.html?yoursession`.
 

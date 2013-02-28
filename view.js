@@ -1,13 +1,14 @@
 "use strict";
 
-var t = new Terminal(80, 25, function() { return false; });
+Terminal.bindKeys = function() {};
+var t = new Terminal(80, 25);
 t.open();
 
 var xhr = new XMLHttpRequest();
 
 var process = function(timingdata, logdata) {
-    var spacepos = timingdata.indexOf(' ');
-    var head = timingdata.slice(0,spacepos), tail = timingdata.slice(spacepos+1);
+    var spacepos = timingdata.indexOf(" ");
+    var head = timingdata.slice(0, spacepos), tail = timingdata.slice(spacepos + 1);
 
     var tuple = head.split("\n");
 
@@ -17,7 +18,7 @@ var process = function(timingdata, logdata) {
       var holdup = parseFloat(tuple[1]), charcount = parseInt(tuple[0]);
 
     var doNugget = function() {
-        t.write(logdata.slice(0,charcount));
+        t.write(logdata.slice(0, charcount));
         process(tail, logdata.slice(charcount));
     };
 
@@ -32,5 +33,5 @@ xhr.onload = function() {
     process(obj.timingdata, obj.logdata);
 };
 
-xhr.open("get", location.search.substring(1),true);
+xhr.open("get", location.search.substring(1));
 xhr.send();

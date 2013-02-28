@@ -8,4 +8,4 @@ a = a.partition(b'\n')[2] # remove "Script started at..."
 a = a.decode("utf-8")
 b = open(sys.argv[2],"rb").read().decode("utf-8")
 
-print(json.dumps({"title":"Session title","logdata":a,"timingdata":b}))
+print(json.dumps({"logdata":a,"timingdata":b}))

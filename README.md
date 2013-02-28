@@ -7,7 +7,7 @@ Record your session using `script` (note that you will need to adjust the size o
     
 Make an empty folder and run this script:
  
-    wget http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js
+    wget -O jquery.js http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js
     wget https://raw.github.com/chjj/tty.js/d379c6f9/static/term.js
     wget http://rachelbythebay.com/jvt/view.js
 

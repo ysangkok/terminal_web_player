@@ -15,7 +15,7 @@ var process = function(timingdata, logdata) {
     if (tuple.length === 1)
       var holdup = parseFloat(tuple[0]), charcount = 0;
     else
-      var holdup = parseFloat(tuple[1]), charcount = parseInt(tuple[0]);
+      var holdup = parseFloat(tuple[1]), charcount = parseInt(tuple[0], 10);
 
     var doNugget = function() {
         t.write(logdata.slice(0, charcount));

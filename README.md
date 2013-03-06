@@ -11,3 +11,5 @@ Run this:
     ./jsonify.py scriptdata timinginfo > yoursession
     
 Now start a webserver in the directory (`python3 -mhttp.server`) and go to the URL `http://localhost:8000/view.html?yoursession`.
+
+See also http://mister-muffin.de/scriptreplay/

@@ -1,6 +1,9 @@
 terminal_web_player
 ===================
 
+*`scriptreplay` in the browser.*
+
+
 Record your session using `script` (note that you will need to adjust the size of the web terminal in `view.js` if you record with `$COLUMNS:$ROWS` unequal `80:24` or less):
 
     script -ttiminginfo scriptdata

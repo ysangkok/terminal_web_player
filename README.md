@@ -15,4 +15,8 @@ Run this:
     
 Now start a webserver in the directory (`python3 -mhttp.server`) and go to the URL `http://localhost:8000/view.html?yoursession`.
 
-See also http://mister-muffin.de/scriptreplay/ and http://rachelbythebay.com/jvt/view?bb_install (this used to be instructions on how to rip it off).
+See also:
+
+- http://showterm.io/ (provides hosting too)
+- http://mister-muffin.de/scriptreplay/
+- http://rachelbythebay.com/jvt/view?bb_install (this used to be instructions on how to rip it off).
